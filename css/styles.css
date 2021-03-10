@@ -129,16 +129,6 @@ body {
   transition: 500ms;
 }
 
-.is-visible {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-
-.non-visible {
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
-}
-
 .arrow {
   position: absolute;
   padding: 10px;

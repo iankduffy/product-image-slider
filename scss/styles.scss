@@ -100,6 +100,9 @@ body {
 
 .slides {
   display: flex;
+  // display: grid;
+  // gap: 10px;
+  // grid-auto-flow: column;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -123,14 +126,6 @@ body {
   width: 100%;
   // transform: scale(0.9);
   transition: 500ms;
-}
-
-.is-visible {
-  transform: scale(1);
-}
-
-.non-visible {
-  transform: scale(0.9);
 }
 
 .arrow {
@@ -164,7 +159,6 @@ body {
   text-align: right;
   display: grid;
   gap: 10px;
-  // grid-template-columns: repeat(auto-fit, 1fr);
   grid-auto-flow: column;
   grid-template-rows: 1;
 

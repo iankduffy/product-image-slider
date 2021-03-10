@@ -26,13 +26,15 @@ leftArrow.addEventListener('click', () => {
 
 const getVisibleSlideIndex = () => {
   const scrollLeft = slider.scrollLeft
-  const allSlide = Array.from(slider.children)
-  console.log(scrollLeft)
 
   return slides.findIndex((slide) => slide.offsetLeft === scrollLeft)
 }
 
 getVisibleSlideIndex()
+
+const scrollToSlideAtIndex = (selectedIndex) => {
+  slider.scrollLeft = selectedIndex * getCurrentSlideWidth()
+}
 
 const addSlideDots = () => {
   slides.forEach((slide) => {
@@ -49,10 +51,15 @@ const updateSlideNumber = () => {
   const currentSlide = getVisibleSlideIndex()
   const dots = dotsContainer.children
 
-  Array.from(dots).forEach((slide) => {
+  Array.from(dots).forEach((dot) => {
+    dot.classList.remove('active')
+  })
+
+  slides.forEach(slide => {
     slide.classList.remove('active')
   })
 
+  slides[currentSlide].classList.add('active')
   dots[currentSlide].classList.add('active')
 }
 
@@ -85,35 +92,11 @@ function debounce (func, wait, immediate) {
 
 slider.addEventListener('scroll', debounce(updateSlideNumber, 100));
 
-// slider.addEventListener('scroll', updateSlideNumber);
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('slide-dot')) {
+    const dots = Array.from(dotsContainer.children)
+    const index = dots.findIndex(dot => dot == e.target)
 
-
-
-
-
-// const callback = (entries, observer) => {
-//   entries.forEach(entry => {
-//     const { target } = entry;
-//     console.log(entry, target)
-    
-//     if (entry.intersectionRatio >= 0.50) {
-//       target.classList.add("is-visible");
-//       target.classList.remove("non-visible");
-//     } else {
-//       target.classList.remove("is-visible");
-//       target.classList.add("non-visible");
-//     }
-//   });
-// };
-
-// let options = {
-//   root: slider,
-//   rootMargin: "0px",
-//   threshold: 0
-// };
-
-// const observer = new IntersectionObserver(callback, options)
-
-// slides.forEach((section, index) => {
-//   observer.observe(section);
-// })
+    scrollToSlideAtIndex(index)
+  }
+})
