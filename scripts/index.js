@@ -8,12 +8,29 @@ const getCurrentSlideWidth = () => {
   return slides.length > 0 ? slides[0].offsetWidth : 500
 }
 
+const getVisibleSlideIndex = () => {
+  const scrollLeft = slider.scrollLeft
+
+  return slides.findIndex((slide) => slide.offsetLeft === scrollLeft)
+}
+
 const scrollLeftByOne = () => {
-  slider.scrollLeft -= getCurrentSlideWidth()
+  const index = getVisibleSlideIndex()
+  const lastSlide = slides.length - 1
+  if (index == 0) {
+    scrollToSlideAtIndex(lastSlide)
+  } else {
+    slider.scrollLeft -= getCurrentSlideWidth()
+  }
 }
 
 const scrollRightByOne = () => {
-  slider.scrollLeft += getCurrentSlideWidth()
+  const index = getVisibleSlideIndex()
+  if (index == slides.length - 1) {
+    scrollToSlideAtIndex(0)
+  } else {
+    slider.scrollLeft += getCurrentSlideWidth()
+  }
 }
 
 rightArrow.addEventListener('click', () => {
@@ -23,12 +40,6 @@ rightArrow.addEventListener('click', () => {
 leftArrow.addEventListener('click', () => {
   scrollLeftByOne()
 })
-
-const getVisibleSlideIndex = () => {
-  const scrollLeft = slider.scrollLeft
-
-  return slides.findIndex((slide) => slide.offsetLeft === scrollLeft)
-}
 
 getVisibleSlideIndex()
 

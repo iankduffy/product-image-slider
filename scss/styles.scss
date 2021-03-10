@@ -124,8 +124,12 @@ body {
   transition: transform 0.5s;
   text-align: left;
   width: 100%;
-  // transform: scale(0.9);
+  transform: scale(1);
   transition: 500ms;
+
+  // &:not(.active) {
+  //   transform: scale(0.93)
+  // }
 }
 
 .arrow {
