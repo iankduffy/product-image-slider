@@ -157,4 +157,36 @@ body {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
+
+.slide-dots {
+  background: rgba(0, 0, 0, 0.6);
+  padding: .5em;
+  border-radius: 1em;
+  position: absolute !important;
+  right: auto;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 1em;
+  list-style: none;
+  display: block;
+  text-align: right;
+  display: -ms-grid;
+  display: grid;
+  gap: 10px;
+  grid-auto-flow: column;
+  -ms-grid-rows: 1;
+      grid-template-rows: 1;
+}
+
+.slide-dot {
+  border-radius: 50%;
+  border: 1px solid #fff;
+  width: 10px;
+  height: 10px;
+}
+
+.slide-dot.active {
+  background: #fff;
+}
 /*# sourceMappingURL=styles.css.map */
