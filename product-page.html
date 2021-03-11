@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Easy Slider</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+  <body>
+    <nav>
+      <a href="/">Home Page Slider</a>
+      <a href="/product-page.html">Product Page Slider</a>
+    </nav>
+    <main class="product-container">
+      <!-- Product photos with slider -->
+      <div class="slide-wrapper">
+        <div class="slider">
+          <div class="slides">
+            <div class="slide active">
+              <img id="one" src="/assets/coffee.jpeg" data-index="0" alt="Coffee">
+            </div>
+            <div class="slide">
+              <img id="two" src="/assets/coffee.jpeg" data-index="1" alt="Coffee">
+            </div>
+            <div class="slide">
+              <img id="three" src="/assets/coffee.jpeg" data-index="2" alt="Coffee">
+            </div>
+            <div class="slide">
+              <img id="three" src="/assets/coffee.jpeg" data-index="3" alt="Coffee">
+            </div>
+            <div class="slide">
+              <img id="three" src="/assets/coffee.jpeg" data-index="4" alt="Coffee">
+            </div>
+          </div>
+        </div>
+
+        <button class="left arrow">
+          <
+        </button>
+
+        <button id="next-arrow" class="right arrow">
+          >
+        </button>
+
+        <div>
+          <ul class="slide-dots">
+
+          </ul>
+        </div>
+        
+      </div>
+      <!-- Product info -->
+      <div>
+        <h2>Product Name</h2>
+        <p>£10.99</p>
+      </div>
+    </main>
+    <script src="/scripts/index.js"></script>
+  </body>
+</html>
