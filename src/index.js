@@ -1,3 +1,5 @@
+import './scss/styles.scss'
+
 const slider = document.querySelector('.slides')
 const rightArrow = document.querySelector('.right.arrow')
 const leftArrow = document.querySelector('.left.arrow')
