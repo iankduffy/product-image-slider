@@ -127,8 +127,10 @@ body {
   width: 100%;
   -webkit-transform: scale(1);
           transform: scale(1);
-  -webkit-transition: 500ms;
-  transition: 500ms;
+  -webkit-transition: -webkit-transform 500ms;
+  transition: -webkit-transform 500ms;
+  transition: transform 500ms;
+  transition: transform 500ms, -webkit-transform 500ms;
 }
 
 .arrow {

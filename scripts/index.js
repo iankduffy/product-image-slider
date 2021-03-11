@@ -14,10 +14,19 @@ const getVisibleSlideIndex = () => {
   return slides.findIndex((slide) => slide.offsetLeft === scrollLeft)
 }
 
-const scrollLeftByOne = () => {
+const lastSlide = () => {
   const index = getVisibleSlideIndex()
+  return index == slides.length - 1
+}
+
+const firstSlide = () => {
+  const index = getVisibleSlideIndex()
+  return index == 0
+}
+
+const scrollLeftByOne = () => {
   const lastSlide = slides.length - 1
-  if (index == 0) {
+  if (firstSlide()) {
     scrollToSlideAtIndex(lastSlide)
   } else {
     slider.scrollLeft -= getCurrentSlideWidth()
@@ -25,8 +34,7 @@ const scrollLeftByOne = () => {
 }
 
 const scrollRightByOne = () => {
-  const index = getVisibleSlideIndex()
-  if (index == slides.length - 1) {
+  if (lastSlide()) {
     scrollToSlideAtIndex(0)
   } else {
     slider.scrollLeft += getCurrentSlideWidth()
