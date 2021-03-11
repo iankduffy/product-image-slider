@@ -78,6 +78,7 @@ const shiftSlider = (element, opts = {}) => {
 
   // Dots Container
   const dotsContainer = sliderContainer.querySelector('.slide-dots')
+
   if (dotsContainer) {
     slides.forEach((slide) => {
     let li = document.createElement('li')
@@ -103,6 +104,21 @@ const shiftSlider = (element, opts = {}) => {
     }
 
     slider.addEventListener('scroll', debounce(updateSlideNumber, 100));
+
+    sliderContainer.addEventListener('click', (e) => {
+      if (e.target.classList.contains('slide-dot')) {
+        const dots = Array.from(dotsContainer.children)
+        const index = dots.findIndex(dot => dot == e.target)
+    
+        scrollToSlideAtIndex(index)
+      }
+    })
+  }
+
+  const timer = sliderContainer.dataset.timer
+
+  if (timer) {
+
   }
 }
 
