@@ -118,7 +118,7 @@ const shiftSlider = (element, opts = {}) => {
   const timer = sliderContainer.dataset.timer
 
   if (timer) {
-
+    setInterval(function(){ scrollRightByOne(); }, timer);
   }
 }
 
@@ -136,12 +136,3 @@ shiftSliders.forEach(slider => shiftSlider(slider))
 //       }
 //   };
 // }
-
-// document.addEventListener('click', (e) => {
-//   if (e.target.classList.contains('slide-dot')) {
-//     const dots = Array.from(dotsContainer.children)
-//     const index = dots.findIndex(dot => dot == e.target)
-
-//     scrollToSlideAtIndex(index)
-//   }
-// })
