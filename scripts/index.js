@@ -78,8 +78,8 @@ const updateSlideNumber = () => {
     slide.classList.remove('active')
   })
 
-  slides[currentSlide].classList.add('active')
-  dots[currentSlide].classList.add('active')
+  slides[currentSlide]?.classList.add('active')
+  dots[currentSlide]?.classList.add('active')
 }
 
 function debounce (func, wait, immediate) {
