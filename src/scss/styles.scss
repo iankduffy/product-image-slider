@@ -116,7 +116,6 @@ body {
 }
 
 .slide {
-  scroll-snap-align: start;
   scroll-snap-stop: always;
   flex-shrink: 0;
   transition: transform 0.5s;
@@ -124,6 +123,10 @@ body {
   width: 100%;
   transform: scale(1);
   transition: transform 500ms;
+}
+
+.slide-stop {
+  scroll-snap-align: start;
 }
 
 .arrow {
@@ -171,4 +174,19 @@ body {
   &.active {
     background: #fff;
   }
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(20, 200px);
+  grid-row: 1;
+  gap: 10px;
+  grid-auto-flow: column;
+}
+
+.container {
+  display: grid;
+  max-width: 1200px;
+  margin: 30px auto;
+  position: relative;
 }

@@ -78,3 +78,28 @@ const productImageSlider = (element) => {
 }
 
 productImageComp.forEach(slider => productImageSlider(slider))
+
+
+// js-product-recommandation
+
+const productRecommandation = document.querySelectorAll('.js-product-recommandation')
+
+const productRecommandationSlider = (element) => {
+  const sliderContainer = element 
+  const slider = sliderContainer.querySelector('.slides')
+  const slides = Array.from(slider.children)
+
+    // Arrows
+    const rightArrow = sliderContainer.querySelector('.right.arrow')
+    const leftArrow = sliderContainer.querySelector('.left.arrow')
+  
+    rightArrow.addEventListener('click', () => {
+      scrollRightByOne(slider, slides)
+    })
+  
+    leftArrow.addEventListener('click', () => {
+      scrollLeftByOne(slider, slides)
+    })
+}
+
+productRecommandation.forEach(slider => productRecommandationSlider(slider))
