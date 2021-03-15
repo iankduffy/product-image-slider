@@ -1,0 +1,23 @@
+{
+  "name": "replacement-slider",
+  "version": "1.0.0",
+  "description": "SliderJS",
+  "main": "index.js",
+  "repository": "https://github.com/iankduffy/product-image-slider.git",
+  "author": "Ian Duffy <ian.duffy@shiftcommerce.com>",
+  "license": "MIT",
+  "dependencies": {
+    "css-loader": "^5.1.2",
+    "html-loader": "^2.1.2",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.24.4",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve --open"
+  }
+}
