@@ -102,7 +102,6 @@ body {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-snap-stop: always;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -118,6 +117,7 @@ body {
 
 .slide {
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   flex-shrink: 0;
   transition: transform 0.5s;
   text-align: left;

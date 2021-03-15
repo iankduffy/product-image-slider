@@ -117,6 +117,7 @@ body {
 
 .slide {
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   -webkit-transition: -webkit-transform 0.5s;
