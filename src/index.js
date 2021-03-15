@@ -1,3 +1,5 @@
+import './scss/styles.scss'
+
 function debounce (func, wait, immediate) {
   var timeout
   return function debouncedFunction () {
