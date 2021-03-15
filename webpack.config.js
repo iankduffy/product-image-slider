@@ -13,6 +13,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
@@ -23,7 +27,17 @@ module.exports = {
           "sass-loader",
         ]}, 
         { test: /\.jpe?g$|\.gif$|\.png$|\.PNG$|\.svg$|\.woff(2)?$|\.ttf$|\.eot$/,
-          loader: "file-loader" }
-      ]
+          use: {
+                loader: 'url-loader',
+                options: {
+                    limit: 100000,
+                    fallback: 'file-loader',
+                    name: '[name].[ext]',
+                    publicPath: 'assets/',
+                    outputPath: 'assets/img/'
+                }
+            }
+        }
+      ] 
     }
 };
