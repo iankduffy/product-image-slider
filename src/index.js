@@ -29,17 +29,14 @@ const productImageSlider = (element) => {
   // Arrows
   const rightArrow = sliderContainer.querySelector('.right.arrow')
   const leftArrow = sliderContainer.querySelector('.left.arrow')
-  if (rightArrow) {
-    rightArrow.addEventListener('click', () => {
-      scrollRightByOne(slider, slides)
-    })
-  }
 
-  if (leftArrow) {
-    leftArrow.addEventListener('click', () => {
-      scrollLeftByOne(slider, slides)
-    })
-  }
+  rightArrow.addEventListener('click', () => {
+    scrollRightByOne(slider, slides)
+  })
+
+  leftArrow.addEventListener('click', () => {
+    scrollLeftByOne(slider, slides)
+  })
 
   // Dots Container
   const dotsContainer = sliderContainer.querySelector('.slide-dots')
