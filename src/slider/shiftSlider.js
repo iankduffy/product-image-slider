@@ -18,14 +18,14 @@ export const firstSlide = (slider, slides) => {
   return index == 0
 }
 
-export const scrollToSlideAtIndex = (selectedIndex) => {
+export const scrollToSlideAtIndex = (selectedIndex, slider, slides) => {
   slider.scrollLeft = selectedIndex * getCurrentSlideWidth(slides)
 }
 
 export const scrollLeftByOne = (slider, slides) => {
   const lastSlide = slides.length - 1
   if (firstSlide(slider, slides)) {
-    scrollToSlideAtIndex(lastSlide)
+    scrollToSlideAtIndex(lastSlide, slider, slides)
   } else {
     slider.scrollLeft -= getCurrentSlideWidth(slides)
   }
@@ -33,7 +33,7 @@ export const scrollLeftByOne = (slider, slides) => {
 
 export const scrollRightByOne = (slider, slides) => {
   if (lastSlide(slider, slides)) {
-    scrollToSlideAtIndex(0)
+    scrollToSlideAtIndex(0, slider, slides)
   } else {
     slider.scrollLeft += getCurrentSlideWidth(slides)
   }
