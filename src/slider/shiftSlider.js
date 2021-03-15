@@ -31,7 +31,7 @@ export const scrollLeftByOne = (slider, slides) => {
   }
 }
 
-export const scrollRightByOne = () => {
+export const scrollRightByOne = (slider, slides) => {
   if (lastSlide(slider, slides)) {
     scrollToSlideAtIndex(0)
   } else {
