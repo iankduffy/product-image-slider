@@ -49,21 +49,51 @@ const productImageSlider = (element) => {
 
   dotsContainer.children[0].classList.add('active')
 
-  const updateSlideNumber = () => {
-    const currentSlide = getVisibleSlideIndex(slider, slides)
-    const dots = dotsContainer.children
-  
-    Array.from(dots).forEach((dot) => {
-      dot.classList.remove('active')
+  const activeState = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.intersectionRatio >= 1) {
+        entry.target.classList.add('active')
+      } else {
+        entry.target.classList.remove('active')
+      }
     })
-  
-    slides.forEach(slide => {
-      slide.classList.remove('active')
-    })
-  
-    slides[currentSlide]?.classList.add('active')
-    dots[currentSlide]?.classList.add('active')
   }
+
+  const options = {
+    root: slider,
+    rootMargin: '20px',
+    threshold: 1
+  }
+
+  const productImages = new IntersectionObserver(activeState, options)
+
+  slides.forEach(target => {
+    console.log(target)
+    productImages.observe(target)
+  })
+
+  const updateSlideNumber = () => {
+
+
+
+    // const currentSlide = getVisibleSlideIndex(slider, slides)
+    // const dots = dotsContainer.children
+  
+    // Array.from(dots).forEach((dot) => {
+    //   dot.classList.remove('active')
+    // })
+  
+    // slides.forEach(slide => {
+    //   slide.classList.remove('active')
+    // })
+
+    // console.log(currentSlide)
+  
+    // slides[currentSlide]?.classList.add('active')
+    // dots[currentSlide]?.classList.add('active')
+  }
+
+
 
   slider.addEventListener('scroll', debounce(updateSlideNumber, 50));
 
@@ -89,17 +119,17 @@ const productRecommandationSlider = (element) => {
   const slider = sliderContainer.querySelector('.slides')
   const slides = Array.from(slider.children)
 
-    // Arrows
-    const rightArrow = sliderContainer.querySelector('.right.arrow')
-    const leftArrow = sliderContainer.querySelector('.left.arrow')
-  
-    rightArrow.addEventListener('click', () => {
-      scrollRightByOne(slider, slides)
-    })
-  
-    leftArrow.addEventListener('click', () => {
-      scrollLeftByOne(slider, slides)
-    })
+  // Arrows
+  const rightArrow = sliderContainer.querySelector('.right.arrow')
+  const leftArrow = sliderContainer.querySelector('.left.arrow')
+
+  rightArrow.addEventListener('click', () => {
+    scrollRightByOne(slider, slides)
+  })
+
+  leftArrow.addEventListener('click', () => {
+    scrollLeftByOne(slider, slides)
+  })
 }
 
 productRecommandation.forEach(slider => productRecommandationSlider(slider))
