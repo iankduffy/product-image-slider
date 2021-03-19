@@ -4,9 +4,12 @@ module.exports = env => {
   const inProduction = env.production
   return {
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    main: './src/index.js', 
+    ie: ['@babel/polyfill', 'intersection-observer', './src/scripts/ie11.js', './src/index.js']
+  },
   output: {
-    filename: 'main.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
@@ -14,6 +17,7 @@ module.exports = env => {
   },
   module: {
     rules: [
+      { test: /\.js$/, loader: 'babel-loader', options: { presets: ["@babel/preset-env"]} },
       {
         test: /\.html$/i,
         loader: 'html-loader',
