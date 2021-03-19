@@ -49,10 +49,22 @@ const productImageSlider = (element) => {
 
   dotsContainer.children[0].classList.add('active')
 
+  const updateSlider = (slideTarget) => {
+    slideTarget.classList.add('active')
+    const slideNumber = slides.findIndex(slide => slide === slideTarget)
+    const dots = dotsContainer.children
+  
+    Array.from(dots).forEach((dot) => {
+      dot.classList.remove('active')
+    })
+
+    dots[slideNumber].classList.add('active')
+  }
+
   const activeState = (entries, observer) => {
     entries.forEach(entry => {
       if (entry.intersectionRatio >= 1) {
-        entry.target.classList.add('active')
+        updateSlider(entry.target)
       } else {
         entry.target.classList.remove('active')
       }
@@ -68,34 +80,8 @@ const productImageSlider = (element) => {
   const productImages = new IntersectionObserver(activeState, options)
 
   slides.forEach(target => {
-    console.log(target)
     productImages.observe(target)
   })
-
-  const updateSlideNumber = () => {
-
-
-
-    // const currentSlide = getVisibleSlideIndex(slider, slides)
-    // const dots = dotsContainer.children
-  
-    // Array.from(dots).forEach((dot) => {
-    //   dot.classList.remove('active')
-    // })
-  
-    // slides.forEach(slide => {
-    //   slide.classList.remove('active')
-    // })
-
-    // console.log(currentSlide)
-  
-    // slides[currentSlide]?.classList.add('active')
-    // dots[currentSlide]?.classList.add('active')
-  }
-
-
-
-  slider.addEventListener('scroll', debounce(updateSlideNumber, 50));
 
   sliderContainer.addEventListener('click', (e) => {
     if (e.target.classList.contains('slide-dot')) {
