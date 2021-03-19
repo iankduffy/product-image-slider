@@ -1,6 +1,8 @@
 const path = require('path');
 
-module.exports = {
+module.exports = env => {
+  const inProduction = env.production
+  return {
   mode: 'development',
   entry: './src/index.js',
   output: {
@@ -40,4 +42,5 @@ module.exports = {
         }
       ] 
     }
+  }
 };
